@@ -24,7 +24,7 @@ jobs:
         with:
           name: imperium02/zbierito/deploypckg
           registry: docker.pkg.github.com
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.TOKEN }}
+          username: imperium02
+          password: ${{ secrets.GITHUB_TOKEN }}
           dockerfile: Dockerfile.prod
           tags: latest
