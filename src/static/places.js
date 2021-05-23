@@ -13,6 +13,13 @@ const places = [
     imageUrl: process.env.PUBLIC_URL + '/assets/island2.jpg',
     time: 1500,
   },
+  {
+    title: 'Test Jana',
+    description:
+        'Kolekcja Jana Miazka to jedna z najepszych kolekcji współczesnej cywilizacji, zwiera fotografie z bujnego i zawrotengo życia 24-letniego już Jana Miazka.',
+    imageUrl: process.env.PUBLIC_URL + '/assets/island2.jpg',
+    time: 1500,
+  },
 ];
 
 export default places;

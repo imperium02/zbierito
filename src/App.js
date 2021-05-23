@@ -1,24 +1,33 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline } from '@material-ui/core';
-import Header from './components/Header';
-import PlaceToVisit from './components/PlaceToVisit';
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { CssBaseline } from "@material-ui/core";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import LoginForm from "./auth/LoginForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: '100vh',
-    backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/bg.jpg'})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    minHeight: "100vh",
   },
 }));
 export default function App() {
   const classes = useStyles();
+  const [authenticated, setAuthenticated] = useState(false);
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header />
-      <PlaceToVisit />
+      <BrowserRouter>
+        <Switch>
+          {authenticated && <Route exact path="/" component={Home} />}
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <LoginForm setAuth={(isCorrect) => setAuthenticated(isCorrect)} />
+            )}
+          />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
